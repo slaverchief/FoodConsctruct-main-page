@@ -84,3 +84,37 @@ footer {
 #active{
     color: orange;
 }
+
+@media (max-width: 600px){
+    h1 {
+        text-align: center;                  
+    }
+
+    nav {
+        display: flex;                      
+        flex-direction: column;              
+        align-items: center; 
+    }
+    
+
+    nav > a {
+        font-size: 16px;                    
+    }
+    
+    section > h2 {
+        text-align: center;                 
+    }
+    
+
+    section > div {
+        display: grid;                       
+        grid-template-columns: repeat(3, 1fr);                
+    }
+}
+
+@media (max-width: 800px){
+    nav{
+        display: flex;                       
+        justify-content: space-between;     
+}
+}
