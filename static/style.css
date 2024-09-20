@@ -1,0 +1,86 @@
+* {
+    font-family:"Audiowide", sans-serif;
+}
+
+section > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px; 
+    padding: 10px;
+}
+
+section > div > div{
+    display: flex;                     
+    flex-direction: column;                           
+    padding: 30px 40px;              
+    border-radius: 35px;               
+    background-color: white;         
+    cursor: pointer;                   
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    transition: border 0.3s;      
+}
+
+section > div > div:hover {
+    border: 2px solid tomato;         
+}
+
+section > div > div:hover > button {
+    background-color: #AAAAAA;
+}
+
+img{
+    width: 100%;            
+    border-radius: 35px;   
+    object-fit: cover;
+    height: 300px;
+    width: 400px;
+    
+}
+
+.price{
+    font-size: 25px;
+}
+
+.name{
+    font-size: 20px;
+}
+
+.mass{
+    color:gray
+}
+
+section>div>div>button {
+    background-color: #f1eee9;  
+    margin-top: 20px;          
+    padding: 10px 30px;       
+    border-radius: 10px;      
+    cursor: pointer;        
+    border: none;                      
+    transition: background-color 0.3s;
+}
+
+nav{
+    display: flex;           
+    flex-wrap: wrap;   
+    gap: 15px;
+    font-size: 20px;    
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: blue;
+}
+
+footer {
+    padding: 1px;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+}
+
+#active{
+    color: orange;
+}
