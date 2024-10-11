@@ -18,58 +18,40 @@
     </header>
 
     <main>
-        <section>
+        <section id="soup">
             <h2>Выберите суп</h2>
             <div>
-                <div>
+                <div data-dish="gaspacho" onclick="select_dish('soup-choice', 1, 195)">
                     <img src="media/gazpacho.jpg" alt="soup">
-                    <p class="price">195 рублей</p>
-                    <p class="name">Гаспачо</p>
-                    <p class="mass">350г</p>
-                    <button>Добавить</button>
+
                 </div>
-                <div>
+                <div data-dish="mushroom_soup" onclick="select_dish('soup-choice', 2, 185)">
                     <img src="media/mushroom_soup.jpg" alt="soup">
-                    <p class="price">185 рублей</p>
-                    <p class="name">Грибной суп-пюре</p>
-                    <p class="mass">330г</p>
-                    <button>Добавить</button>
+
                 </div>
-                <div>
+                <div data-dish="norwegian_soup" onclick="select_dish('soup-choice', 3, 270)">
                     <img src="media/norwegian_soup.jpg" alt="soup">
-                    <p class="price">270 рублей</p>
-                    <p class="name">Норвежский суп</p>
-                    <p class="mass">330г</p>
-                    <button>Добавить</button>
+
                 </div>
 
             </div>
             
         </section>
 
-        <section>
+        <section id="main_dish">
             <h2>Выберите главное блюдо</h2>
             <div>
-                <div>
+                <div data-dish="friedpotatoeswithmushrooms1" onclick="select_dish('main-dish-choice', 1, 150)">
                     <img src="media/friedpotatoeswithmushrooms1.jpg" alt="soup">
-                    <p class="price">150 рублей</p>
-                    <p class="name">Жареная картошка</p>
-                    <p class="mass">250г</p>
-                    <button>Добавить</button>
+   
                 </div>
-                <div>
+                <div data-dish="lasagna" onclick="select_dish('main-dish-choice', 2, 385)">
                     <img src="media/lasagna.jpg" alt="soup">
-                    <p class="price">385 рублей</p>
-                    <p class="name">Лазанья</p>
-                    <p class="mass">310г</p>
-                    <button>Добавить</button>
+         
                 </div>
-                <div>
+                <div data-dish="chickencutletsandmashedpotatoes" onclick="select_dish('main-dish-choice', 3, 225)">
                     <img src="media/chickencutletsandmashedpotatoes.jpg" alt="soup">
-                    <p class="price">225 рублей</p>
-                    <p class="name">Котлеты из курицы с картофельным пюре</p>
-                    <p class="mass">280г</p>
-                    <button>Добавить</button>
+
                 </div>
             </div>
         </section>
@@ -77,26 +59,17 @@
         <section>
         <h2>Выберите напиток</h2>
         <div>
-            <div>
+            <div data-dish="orangejuice" onclick="select_dish('drink-choice', 1, 120)">
                 <img src="media/orangejuice.jpg" alt="soup">
-                <p class="price">120 рублей</p>
-                <p class="name">Апельсиновый сок</p>
-                <p class="mass">300мл</p>
-                <button>Добавить</button>
+
             </div>
-            <div>
+            <div data-dish="applejuice" onclick="select_dish('drink-choice', 2, 90)">
                 <img src="media/applejuice.jpg" alt="soup">
-                <p class="price">90 рублей</p>
-                <p class="name">Яблочный сок</p>
-                <p class="mass">300мл</p>
-                <button>Добавить</button>
+
             </div>
-            <div>
+            <div data-dish="carrotjuice" onclick="select_dish('drink-choice', 3, 110)">
                 <img src="media/carrotjuice.jpg" alt="soup">
-                <p class="price">110 рублей</p>
-                <p class="name">Морковный сок</p>
-                <p class="mass">300г</p>
-                <button>Добавить</button>
+
             </div>
         </div>
             
@@ -109,30 +82,32 @@
         <h1>Сделать заказ</h1>
         <div>
             <div id="order">
-                <h2>Ваш заказ</h2>
+                    <h2 id="order_h2">Ваш заказ</h2>
                 <label>Супы</label>
-                <select name="soup-choice" required>
-                    <option value=0 selected disabled hidden>--Выберите суп--</option>
-                    <option value=1>Гаспачо</option>
-                    <option value=2>Грибной суп-пюре</option>
-                    <option value=3>Норвежский суп</option>
+                <select name="soup-choice" onchange="select_option('soup')" required>
+                    <option value="" selected disabled hidden>--Выберите суп--</option>
+                    <option value=1>Гаспачо 195 рублей</option>
+                    <option value=2>Грибной суп-пюре 185 рублей</option>
+                    <option value=3>Норвежский суп 270 рублей</option>
                 </select>
                 <label>Главное блюдо</label>
-                <select name="main-dish-choice" required>
-                    <option value=0 selected disabled hidden>--Выберите главное блюдо--</option>
-                    <option value=1>Жареная картошка</option>
-                    <option value=2>Лазанья</option>
-                    <option value=3>Котлеты из курицы с картофельным пюре</option>
+                <select name="main-dish-choice" onchange="select_option('main_dish')" required>
+                    <option value="" selected disabled hidden>--Выберите главное блюдо--</option>
+                    <option value=1>Жареная картошка 150 рублей</option>
+                    <option value=2>Лазанья 385 рублей</option>
+                    <option value=3>Котлеты из курицы с картофельным пюре 225 рублей</option>
                 </select>
                 <label>Напиток</label>
-                <select name="drink-choice" required>
-                    <option value=0 selected disabled hidden>--Выберите напиток--</option>
-                    <option value=1>Апельсиновый сок</option>
-                    <option value=2>Яблочный сок</option>
-                    <option value=3>Морковный сок</option>
+                <select name="drink-choice" onchange="select_option('drink')"  required>
+                    <option value="" selected disabled hidden>--Выберите напиток--</option>
+                    <option value=1>Апельсиновый сок 120 рублей</option>
+                    <option value=2>Яблочный сок 90 рублей</option>
+                    <option value=3>Морковный сок 110 рублей</option>
                 </select>
                 <label>Комментарии к заказу</label>
                 <textarea></textarea>
+
+                
             </div>
             <div id="client-info">
                 <h2>Ваши данные</h2>
@@ -171,6 +146,7 @@
     <footer id="contacts">
         <p>Позвонить нам +7-000-000-00</p>
     </footer>
-
+    <script src="scripts/arrays.js" defer></script>
+    <script  src="scripts/script.js" defer></script>
 </body>
 </html>

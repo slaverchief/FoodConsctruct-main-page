@@ -23,6 +23,7 @@ section > div > div{
     transition: border 0.3s;      
 }
 
+
 section > div > div:hover {
     border: 2px solid tomato;         
 }
