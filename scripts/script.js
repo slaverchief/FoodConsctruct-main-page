@@ -13,10 +13,10 @@ function select_dish(name, id, price){
     option3.removeAttribute('selected');
     option = document.querySelector(`select[name='${name}'] option[value='${id}']`);
     option.setAttribute('selected', true);
-    if (name == 'soup-choice'){
+    if (name == 'soup'){
         soup_sum = price;
     }
-    else if (name == 'main-dish-choice'){
+    else if (name == 'main_dish'){
         main_dish_sum = price;
     }
     else{
@@ -30,7 +30,7 @@ let soup_block = document.getElementById('soup')
 let div_blocks = ''
 soup_array.forEach(dish => {
     div_blocks += `
-                    <div data-dish="${dish.keyword}">
+                    <div onclick="select_dish('${dish.category}', ${soup_array.indexOf(dish)+1}, ${dish.price})" data-dish="${dish.keyword}">
                     <img src="${dish.image}" alt="soup">
                     <p class="price">${dish.price} рублей</p>
                     <p class="name">${dish.name}</p>
@@ -50,7 +50,7 @@ let main_dish_block = document.getElementById('main_dish')
 div_blocks = ''
 dishes_array.forEach(dish => {
     div_blocks += `
-                    <div data-dish="${dish.keyword}">
+                    <div onclick="select_dish('${dish.category}', ${dishes_array.indexOf(dish)+1}, ${dish.price})" data-dish="${dish.keyword}">
                     <img src="${dish.image}" alt="soup">
                     <p class="price">${dish.price} рублей</p>
                     <p class="name">${dish.name}</p>
@@ -66,11 +66,11 @@ main_dish_block.innerHTML = `
     </div>
 `
 
-let drink_block = document.getElementById('drinks')
+let drink_block = document.getElementById('drink')
 div_blocks = ''
 drinks_array.forEach(dish => {
     div_blocks += `
-                    <div data-dish="${dish.keyword}">
+                    <div onclick="select_dish('${dish.category}', ${drinks_array.indexOf(dish)+1}, ${dish.price})" data-dish="${dish.keyword}">
                     <img src="${dish.image}" alt="soup">
                     <p class="price">${dish.price} рублей</p>
                     <p class="name">${dish.name}</p>
