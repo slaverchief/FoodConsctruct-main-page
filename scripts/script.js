@@ -2,7 +2,7 @@ let soup_sum = 0;
 let main_dish_sum = 0;
 let drink_sum = 0;
 let sum = 0;
-dishes_array.sort((a, b) => a.name.localeCompare(b.name));
+
 
 function select_dish(name, id, price){
     option1 = document.querySelector(`select[name='${name}'] option[value='1']`);
@@ -26,14 +26,63 @@ function select_dish(name, id, price){
     document.getElementById('order_h2').innerHTML = `Ваш заказ стоит ${sum} рублей`
 }
 
-
-dishes_array.forEach(dish => {
-
-    dish_block = document.querySelectorAll(`[data-dish="${dish.keyword}"]`)[0];
-    dish_block.innerHTML += `
+let soup_block = document.getElementById('soup')
+let div_blocks = ''
+soup_array.forEach(dish => {
+    div_blocks += `
+                    <div data-dish="${dish.keyword}">
+                    <img src="${dish.image}" alt="soup">
                     <p class="price">${dish.price} рублей</p>
                     <p class="name">${dish.name}</p>
                     <p class="mass">${dish.count}</p>
                     <button>Добавить</button>
+                    </div>
     `
 });
+soup_block.innerHTML = `
+    <h2>Выберите суп</h2>
+    <div>
+    ${div_blocks}
+    </div>
+`
+
+let main_dish_block = document.getElementById('main_dish')
+div_blocks = ''
+dishes_array.forEach(dish => {
+    div_blocks += `
+                    <div data-dish="${dish.keyword}">
+                    <img src="${dish.image}" alt="soup">
+                    <p class="price">${dish.price} рублей</p>
+                    <p class="name">${dish.name}</p>
+                    <p class="mass">${dish.count}</p>
+                    <button>Добавить</button>
+                    </div>
+    `
+});
+main_dish_block.innerHTML = `
+    <h2>Выберите главное блюдо</h2>
+    <div>
+    ${div_blocks}
+    </div>
+`
+
+let drink_block = document.getElementById('drinks')
+div_blocks = ''
+drinks_array.forEach(dish => {
+    div_blocks += `
+                    <div data-dish="${dish.keyword}">
+                    <img src="${dish.image}" alt="soup">
+                    <p class="price">${dish.price} рублей</p>
+                    <p class="name">${dish.name}</p>
+                    <p class="mass">${dish.count}</p>
+                    <button>Добавить</button>
+                    </div>
+    `
+});
+
+drink_block.innerHTML = `
+    <h2>Выберите напиток</h2>
+    <div>
+    ${div_blocks}
+    </div>
+`
