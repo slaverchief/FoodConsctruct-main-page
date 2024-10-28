@@ -2,11 +2,12 @@
     font-family:"Audiowide", sans-serif;
 }
 
+
+
 section > div {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 10px; 
-    padding: 10px;
+
 }
 
 section > div > div{
@@ -187,4 +188,19 @@ button:hover{
 
 textarea{
     height: 30%;
+}
+
+.filter-button{
+    all: unset;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 20px;
+    color: green;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+*[disabled]{
+    color: black;
+    font-weight: bold;
 }

@@ -1,16 +1,28 @@
 let soup_sum = 0;
 let main_dish_sum = 0;
 let drink_sum = 0;
+let dessert_sum = 0;
+let salad_sum = 0;  
 let sum = 0;
+
+load_beverages_blocks()
+load_main_dish_blocks()
+load_soup_blocks()
+load_salads()
+load_desserts()
 
 
 function select_dish(name, id, price){
-    option1 = document.querySelector(`select[name='${name}'] option[value='1']`);
-    option2 = document.querySelector(`select[name='${name}'] option[value='2']`);
-    option3 = document.querySelector(`select[name='${name}'] option[value='3']`);
-    option1.removeAttribute('selected');
-    option2.removeAttribute('selected');
-    option3.removeAttribute('selected');
+    let arr = null;
+    if (name == 'soup') {arr = soup_array}
+    else if (name == 'main_dish') {arr = dishes_array}
+    else if (name == 'drink') {arr = drinks_array}
+    else if (name == 'salad') {arr = salads_array}
+    else if (name == 'dessert') {arr = desserts_array}
+
+    arr.forEach(el => {
+        document.querySelector(`select[name='${el.category}'] option[value='${el.select_id}']`).removeAttribute('selected')
+    });
     option = document.querySelector(`select[name='${name}'] option[value='${id}']`);
     option.setAttribute('selected', true);
     if (name == 'soup'){
@@ -19,70 +31,16 @@ function select_dish(name, id, price){
     else if (name == 'main_dish'){
         main_dish_sum = price;
     }
-    else{
+    else if (name == 'drink'){
         drink_sum = price;
     }
-    sum = soup_sum + main_dish_sum + drink_sum
+
+    else if (name == 'dessert'){
+        dessert_sum = price
+    }
+    else if (name = 'salad'){
+        salad_sum = price
+    }
+    sum = soup_sum + main_dish_sum + drink_sum + dessert_sum + salad_sum
     document.getElementById('order_h2').innerHTML = `Ваш заказ стоит ${sum} рублей`
 }
-
-let soup_block = document.getElementById('soup')
-let div_blocks = ''
-soup_array.forEach(dish => {
-    div_blocks += `
-                    <div onclick="select_dish('${dish.category}', ${soup_array.indexOf(dish)+1}, ${dish.price})" data-dish="${dish.keyword}">
-                    <img src="${dish.image}" alt="soup">
-                    <p class="price">${dish.price} рублей</p>
-                    <p class="name">${dish.name}</p>
-                    <p class="mass">${dish.count}</p>
-                    <button>Добавить</button>
-                    </div>
-    `
-});
-soup_block.innerHTML = `
-    <h2>Выберите суп</h2>
-    <div>
-    ${div_blocks}
-    </div>
-`
-
-let main_dish_block = document.getElementById('main_dish')
-div_blocks = ''
-dishes_array.forEach(dish => {
-    div_blocks += `
-                    <div onclick="select_dish('${dish.category}', ${dishes_array.indexOf(dish)+1}, ${dish.price})" data-dish="${dish.keyword}">
-                    <img src="${dish.image}" alt="soup">
-                    <p class="price">${dish.price} рублей</p>
-                    <p class="name">${dish.name}</p>
-                    <p class="mass">${dish.count}</p>
-                    <button>Добавить</button>
-                    </div>
-    `
-});
-main_dish_block.innerHTML = `
-    <h2>Выберите главное блюдо</h2>
-    <div>
-    ${div_blocks}
-    </div>
-`
-
-let drink_block = document.getElementById('drink')
-div_blocks = ''
-drinks_array.forEach(dish => {
-    div_blocks += `
-                    <div onclick="select_dish('${dish.category}', ${drinks_array.indexOf(dish)+1}, ${dish.price})" data-dish="${dish.keyword}">
-                    <img src="${dish.image}" alt="soup">
-                    <p class="price">${dish.price} рублей</p>
-                    <p class="name">${dish.name}</p>
-                    <p class="mass">${dish.count}</p>
-                    <button>Добавить</button>
-                    </div>
-    `
-});
-
-drink_block.innerHTML = `
-    <h2>Выберите напиток</h2>
-    <div>
-    ${div_blocks}
-    </div>
-`
