@@ -107,10 +107,10 @@
                 </div>
                 
                 <label>Укажите время доставки</label>
-                <input type="time" step=300 max="23:00" min="07:00" name="time-delivery-choice" required>
+                <input type="time" step=300 max="23:00" min="07:00" name="time-delivery-choice">
                 <div id = 'buttons-block'>
                     <button type="reset">Сбросить</button>
-                    <button type="submit">Отправить</button>
+                    <button type='button' onclick="pre_submit()">Отправить</button>
                 </div>
                 
             </div>
@@ -121,6 +121,11 @@
     <footer id="contacts">
         <p>Позвонить нам +7-000-000-00</p>
     </footer>
+    <div id="notification">
+        <p>Это всплывающее уведомление</p>
+        <button id="closeNotification" onclick="close_notification()">Окей></button>
+      </div>      
+    <dialog aria-label="hellpppp">Hello</dialog>
     <script src="scripts/arrays.js" defer></script>
     <script  src="scripts/load_funcs.js" defer></script>
     <script  src="scripts/script.js" defer></script>

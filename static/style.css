@@ -203,4 +203,27 @@ textarea{
 *[disabled]{
     color: black;
     font-weight: bold;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-align: center;
 }
+
+#notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    width: 40%;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  .hidden {
+    display: none;
+  }

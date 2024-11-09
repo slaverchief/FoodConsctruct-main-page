@@ -5,12 +5,26 @@ let dessert_sum = 0;
 let salad_sum = 0;  
 let sum = 0;
 
-load_beverages_blocks()
-load_main_dish_blocks()
-load_soup_blocks()
-load_salads()
-load_desserts()
+load_all_blocks()
 
+function trigger_notification(text){
+    document.getElementById('notification').getElementsByTagName('p')[0].innerHTML = text;
+    document.getElementById('notification').classList.remove('hidden');
+}
+
+function close_notification(){
+    document.getElementById('notification').classList.add('hidden')
+}
+
+function pre_submit(){
+    if (sum == 0){trigger_notification('Выберите что-нибудь для заказа')}
+    else if (drink_sum == 0){trigger_notification('Выберите напиток')}
+    else if (soup_sum != 0 && main_dish_sum == 0 && salad_sum == 0){trigger_notification('Выберите главное блюдо и салат')}
+    else if (soup_sum == 0 || main_dish_sum == 0){trigger_notification('Выберите суп или главное блюдо')}
+    else if (main_dish_sum == 0){trigger_notification('Выберите главное блюдо')}
+    else{document.getElementsByTagName('form')[0].submit();}
+        
+}
 
 function select_dish(name, id, price){
     let arr = null;
