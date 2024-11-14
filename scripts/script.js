@@ -8,8 +8,10 @@ let sum = 0;
 load_all_blocks()
 
 function trigger_notification(text){
-    document.getElementById('notification').getElementsByTagName('p')[0].innerHTML = text;
-    document.getElementById('notification').classList.remove('hidden');
+    let notification = document.getElementById('notification')
+    console.log(notification)
+    notification.getElementsByTagName('p')[0].innerHTML = text;
+    notification.classList.remove('hidden');
 }
 
 function close_notification(){
