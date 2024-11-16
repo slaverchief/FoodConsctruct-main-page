@@ -7,23 +7,39 @@ let sum = 0;
 
 load_all_blocks()
 
+document.getElementById('construct_form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Остановить стандартное поведение отправки формы
+    
+    let isValid = true; // Флаг для проверки валидности
+
+    if (sum == 0){trigger_notification('Выберите что-нибудь для заказа'); isValid=false;}
+    else if (drink_sum == 0){trigger_notification('Выберите напиток'); isValid=false;}
+    else if (soup_sum != 0 && main_dish_sum == 0 && salad_sum == 0){trigger_notification('Выберите главное блюдо и салат'); isValid=false;}
+    else if (soup_sum == 0 || main_dish_sum == 0){trigger_notification('Выберите суп или главное блюдо'); isValid=false;}
+    else if (main_dish_sum == 0){trigger_notification('Выберите главное блюдо'); isValid=false;}
+
+    // Если первая валидация прошла, проверить встроенные валидаторы
+    if (isValid) {
+        if (this.checkValidity()) {
+            // Если все проверки пройдены, отправляем форму
+            this.submit(); // Отправить форму
+        } else {
+            // Если встроенные валидаторы не пройдены
+            this.reportValidity(); // Отобразить ошибки валидаторов
+        }
+    }
+});
+
+
 function trigger_notification(text){
-    document.getElementById('notification').getElementsByTagName('p')[0].innerHTML = text;
-    document.getElementById('notification').classList.remove('hidden');
+    let notification = document.getElementById('notification')
+    console.log(notification)
+    notification.getElementsByTagName('p')[0].innerHTML = text;
+    notification.classList.remove('hidden');
 }
 
 function close_notification(){
-    document.getElementById('notification').classList.add('hidden')
-}
-
-function pre_submit(){
-    if (sum == 0){trigger_notification('Выберите что-нибудь для заказа')}
-    else if (drink_sum == 0){trigger_notification('Выберите напиток')}
-    else if (soup_sum != 0 && main_dish_sum == 0 && salad_sum == 0){trigger_notification('Выберите главное блюдо и салат')}
-    else if (soup_sum == 0 || main_dish_sum == 0){trigger_notification('Выберите суп или главное блюдо')}
-    else if (main_dish_sum == 0){trigger_notification('Выберите главное блюдо')}
-    else{document.getElementsByTagName('form')[0].submit();}
-        
+    document.getElementById('notification').classList.add('hidden');
 }
 
 function select_dish(name, id, price){
@@ -58,3 +74,5 @@ function select_dish(name, id, price){
     sum = soup_sum + main_dish_sum + drink_sum + dessert_sum + salad_sum
     document.getElementById('order_h2').innerHTML = `Ваш заказ стоит ${sum} рублей`
 }
+
+

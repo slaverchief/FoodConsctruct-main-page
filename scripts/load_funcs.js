@@ -204,10 +204,11 @@ function load_desserts(filter = null){
 }
 
 
-function load_all_blocks(){
+async function load_all_blocks(){
     load_beverages_blocks();
     load_main_dish_blocks();
     load_soup_blocks();
     load_salads();
     load_desserts();
 }
+
