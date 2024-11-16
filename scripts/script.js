@@ -6,7 +6,10 @@ let salad_sum = 0;
 let sum = 0;
 
 // Вызов функции, прогружающей все данные из файла arrays.js
-load_all_blocks()
+prepare_page()
+
+
+
 
 // Слушатель ивента на отправление данных формы на адрес action. Нужен для отдельной валидации формы на стороне клиента
 document.getElementById('construct_form').addEventListener('submit', function(event) {
@@ -55,7 +58,7 @@ function select_dish(name, id, price){
     else if (name == 'dessert') {arr = desserts_array}
 
     arr.forEach(el => {
-        document.querySelector(`select[name='${el.category}'] option[value='${el.select_id}']`).removeAttribute('selected')
+        option = document.querySelector(`select[name='${el.category}'] option[value='${el.select_id}']`)
     });
     option = document.querySelector(`select[name='${name}'] option[value='${id}']`);
     option.setAttribute('selected', true);
