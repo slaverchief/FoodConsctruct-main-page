@@ -1,3 +1,6 @@
+// Ниже: функции для подгрузки данных с файла arrays.js на html страницу. Так же функции вызываются при нажатии на кнопки фильтров.
+// filter=null означает, что подгружаются все элементы списка. При передаче валидного аргумента фильтра выводятся только блюда с определенным видом
+
 function load_soup_blocks(filter = null){
     let filter_button = document.querySelector(`div[id='soup-filters'] button[id='active']`)
     if (filter_button){
@@ -203,8 +206,8 @@ function load_desserts(filter = null){
 
 }
 
-
-async function load_all_blocks(){
+// Функция загружает все блоки с блюдами
+function load_all_blocks(){
     load_beverages_blocks();
     load_main_dish_blocks();
     load_soup_blocks();

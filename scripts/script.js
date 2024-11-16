@@ -5,8 +5,10 @@ let dessert_sum = 0;
 let salad_sum = 0;  
 let sum = 0;
 
+// Вызов функции, прогружающей все данные из файла arrays.js
 load_all_blocks()
 
+// Слушатель ивента на отправление данных формы на адрес action. Нужен для отдельной валидации формы на стороне клиента
 document.getElementById('construct_form').addEventListener('submit', function(event) {
     event.preventDefault(); // Остановить стандартное поведение отправки формы
     
@@ -30,18 +32,20 @@ document.getElementById('construct_form').addEventListener('submit', function(ev
     }
 });
 
-
+// Функция для создания уведомления
 function trigger_notification(text){
     let notification = document.getElementById('notification')
-    console.log(notification)
     notification.getElementsByTagName('p')[0].innerHTML = text;
     notification.classList.remove('hidden');
 }
 
+
+// Функция, срабатывающая при нажатии кнопки "закрыть" на уведомлении
 function close_notification(){
     document.getElementById('notification').classList.add('hidden');
 }
 
+// Функция, срабатывающая при нажатии на блок с конкретным блюдом.
 function select_dish(name, id, price){
     let arr = null;
     if (name == 'soup') {arr = soup_array}
@@ -55,6 +59,7 @@ function select_dish(name, id, price){
     });
     option = document.querySelector(`select[name='${name}'] option[value='${id}']`);
     option.setAttribute('selected', true);
+    // Задавание суммы заказов. Общая сумма складывается из сумм за отдельно каждое блюдо
     if (name == 'soup'){
         soup_sum = price;
     }
