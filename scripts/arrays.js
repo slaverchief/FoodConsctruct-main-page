@@ -27,7 +27,7 @@ function fill_arrays(res){
 }
 
 function preload(){
-    url = 'http://lab7-api.std-900.ist.mospolytech.ru/api/dishes'
+    url = 'https://edu.std-900.ist.mospolytech.ru/labs/api/dishes'
     const req = new XMLHttpRequest();
     var result = null
     req.open("GET", url, true);
