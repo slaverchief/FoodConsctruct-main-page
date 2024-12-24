@@ -4,7 +4,14 @@ let drinks_array = [];
 let salads_array = [];
 let desserts_array = [];
 
-function load_arrays(res){
+
+
+
+
+
+
+
+function fill_arrays(res){
     let i = -1
     for(let j = 0; j < res.length; j++){
         i += 1
@@ -19,5 +26,14 @@ function load_arrays(res){
     load_all_blocks()
 }
 
-
-
+function preload(){
+    url = 'http://lab7-api.std-900.ist.mospolytech.ru/api/dishes'
+    const req = new XMLHttpRequest();
+    var result = null
+    req.open("GET", url, true);
+    req.responseType = 'json'
+    req.send();
+    req.onload = (e) => {
+        fill_arrays(req.response)
+    }
+}

@@ -6,7 +6,7 @@ let salad_sum = 0;
 let sum = 0;
 
 // Вызов функции, прогружающей все данные из файла arrays.js
-prepare_page()
+preload()
 
 
 
