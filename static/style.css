@@ -236,8 +236,7 @@ textarea{
   }
 
   .icon:hover{
-    width: 70px;
-    height: 70px;
+    transform: scale(1.5);
   }
 
   #options-block{
